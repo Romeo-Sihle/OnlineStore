@@ -26,6 +26,7 @@ session_start();
         <script src="galleria/galleria-1.6.1.min.js"></script>
         <!-- load jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+        
         <!-- External CSS --> 
         <link rel="stylesheet" href="css/gallery.css" type="text/css">
     </head>
@@ -39,6 +40,10 @@ session_start();
            ?>
         
            <center>
+            <button id="hide" class="hideshow">Hide</button>
+            <button id="show" class="hideshow">Show</button>
+            <br>
+            <div class="wrap">
              <div class="jumbotron jumbotron-fluid">
               <h2 class="heading">Mercedes Benz AMG Gallery</h2>
               <div class="container">
@@ -152,8 +157,21 @@ session_start();
               </div>
             </div>
           </div>
+        </div>
         </center>
       </div>
+
+        <script>
+            $(document).ready(function(){
+              $("#hide").click(function(){
+                $(".wrap").hide(900);
+              });
+              $("#show").click(function(){
+                $(".wrap").show(900);
+              });
+            });
+        </script>
+        
         <script>
         $(function() {
             // Load the Twelve theme
@@ -164,5 +182,7 @@ session_start();
         });
         </script>
 
+        <!--Hide Show Javascript CDN-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </body>
 </html>

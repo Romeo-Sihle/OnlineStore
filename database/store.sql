@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2018 at 11:47 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jun 01, 2020 at 11:21 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `store`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Surname` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `Name`, `Surname`, `Email`, `Message`) VALUES
+(1, 'Romeo', 'Mnxulwa', 'romeosihle.mnxulwa@gmail.com', 'Good Day, \r\n\r\nI would like to make a request of acquiring a Mercedes Benz GLC63s AMG 4-Matic + as I do not find it here in South African dealerships. I would like it imported to my residential address.\r\n\r\nKind Regards\r\n\r\nRomeo'),
+(2, 'Romeo', 'Gibbs', 'gibs@gmail.com', 'hello'),
+(3, 'Sihle', 'Mnxulwa', 'romeosihle.mnxulwa@gmail.com', 'Good day, \r\n\r\nI am Interested in the new GLA AMG Mercedes Benz. Please contact me.\r\n\r\nThank you.\r\n\r\nRomeo Mnxulwa\r\n');
 
 -- --------------------------------------------------------
 
@@ -39,18 +61,18 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `price`) VALUES
-(1, 'Cannon EOS', 36000),
-(2, 'Sony DSLR', 40000),
-(3, 'Sony DSLR', 50000),
-(4, 'Olympus DSLR', 80000),
-(5, 'Titan Model #301', 13000),
-(6, 'Titan Model #201', 3000),
-(7, 'HMT Milan', 8000),
-(8, 'Favre Lueba #111', 18000),
-(9, 'Raymond', 1500),
-(10, 'Charles', 1000),
-(11, 'HXR', 900),
-(12, 'PINK', 1200);
+(1, 'Mercedes Benz CLA45 AMG', 860600),
+(2, 'Mercedes Benz GT63 AMG ', 1660900),
+(3, 'Mercedes Benz C63s AMG ', 1200350),
+(4, 'Mercedes Benz C63s AMG Coupe\'', 1800300),
+(5, 'Mercedes Benz X-Class', 513200),
+(6, 'Mercedes Benz GLC Pick-Up AMG', 580300),
+(7, 'Mercedes Benz GLC63s Coupe\' AMG 4-Matic +', 4800990),
+(8, 'Mercedes Benz G63 AMG', 5280300),
+(9, 'Mercedes Benz E63s AMG', 3200402),
+(10, 'Mercedes Benz E63s Coupe\' AMG', 3320900),
+(11, 'Mercedes Benz SLS Coupe\' AMG', 4900090),
+(12, 'Mercedes Benz SLSs Coupe\' AMG 4-Matic+', 5987995);
 
 -- --------------------------------------------------------
 
@@ -74,7 +96,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `city`, `address`) VALUES
 (4, 'yugesh verma', 'yugeshverma32@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '6263056779', 'bhilai', '25 commercial complex, nehru nagar,east near vijya bank, bhilai C.G.'),
-(5, 'yugesh', 'yugeshverma@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '9165063741', 'bhilai', 'bhilai');
+(5, 'yugesh', 'yugeshverma@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '9165063741', 'bhilai', 'bhilai'),
+(6, 'Romeo Mnxulwa', 'romeosihle.mnxulwa@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '0822843112', 'Cape Town', '12 Hunt Church Street');
 
 -- --------------------------------------------------------
 
@@ -103,11 +126,21 @@ INSERT INTO `users_items` (`id`, `user_id`, `item_id`, `status`) VALUES
 (13, 1, 8, 'Added to cart'),
 (14, 4, 2, 'Confirmed'),
 (18, 5, 11, 'Added to cart'),
-(20, 5, 5, 'Added to cart');
+(20, 5, 5, 'Added to cart'),
+(22, 6, 2, 'Added to cart'),
+(23, 6, 4, 'Added to cart'),
+(25, 6, 5, 'Added to cart'),
+(29, 6, 12, 'Added to cart');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `items`
@@ -134,6 +167,12 @@ ALTER TABLE `users_items`
 --
 
 --
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
@@ -143,24 +182,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users_items`
 --
 ALTER TABLE `users_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `users_items`
---
-ALTER TABLE `users_items`
-  ADD CONSTRAINT `users_items_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `users_items_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

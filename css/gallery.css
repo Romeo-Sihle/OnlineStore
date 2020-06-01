@@ -69,7 +69,30 @@
  	font-size: 180%;
  }
 
+.hideshow
+{
+	background: rgba(0,0,0,0.4);
+	color: #fff;
+}
+
+#show
+{
+	background: rgba(0,0,0,0.4);
+	color: #fff;
+}
+
+#hide: hover
+{
+	background: rgba(0,0,0,0.8);
+}
+
+#show: hover
+{
+	background: rgba(0,0,0,0.8);
+}
+
  /* On smaller screens, decrease text size */
+
 @media only screen and (max-width: 300px) {
   .heading 
   {

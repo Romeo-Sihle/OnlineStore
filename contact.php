@@ -46,20 +46,56 @@ require 'connection.php';
 
         <?php
 
-           if(isset($_POST['submit']))
+          if($_SERVER["REQUEST_METHOD"] == "POST")
            {
                 $item_id=$_GET['id'];
                 $user_id=$_SESSION['id'];
-                $name = $_POST['name'];
-                $surname = $_POST['surname'];
-                $email = $_POST['email'];
-                $message = $_POST['message'];
+                $feedbackname = $_POST['feedbackname'];
+                $feedbacksurname = $_POST['feedbacksurname'];
+                $feedbackemail = $_POST['feedbackemail'];
+                $feedbackmessage = $_POST['feedbackmessage'];
 
-                $sql = "insert into feedback(name, surname, email, message) 
-                    values('$name','$surname', '$email','$message')";
+                $sql = "insert into feedback(Name, Surname, Email, Message) 
+                    values('$feedbackname','$feedbacksurname', '$feedbackemail','$feedbackmessage')";
 
+                $results = mysqli_query($conn, $sql);
 
+                 if(!$results)
+                {
+                    die("Failed!");
+                }
+                else
+                {
+                    header('Location: contact.php?mess=success');
+                }
 
+                $conn->close();
+
+                /*
+                if($_SERVER['REQUEST_METHOD'] == 'POST')
+                {
+                  $task = $_POST['task'];
+                  $date = date('l dS F\, Y');
+                  $ddate = date('l dS F\, Y', strtotime($_POST['ddate']));
+                  echo $date;
+                  echo $ddate; 
+
+                  $sql = "INSERT INTO todo(t_name, t_date, t_ddate) 
+                    VALUES('$task','$date','$ddate');";
+
+                  $results = mysqli_query($conn, $sql); 
+                  if(!$results)
+                  {
+                    die("Failed!");
+                  }
+                  else
+                  {
+                    header("Location: index.php?task_added");
+                  }
+                }
+                */
+
+  /*
                 if (mysqli_query($con, $sql)) {
                   echo "New record created successfully";
                 } 
@@ -69,9 +105,12 @@ require 'connection.php';
                 }
 
                 $con->close();
-                /*
 
-                 $name = $_POST['name'];
+  */
+
+
+                /*
+                $name = $_POST['name'];
                 $surname = $_POST['surname'];
                 $message = $_POST['message'];
 
@@ -122,10 +161,10 @@ require 'connection.php';
               <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
               <p><b>Feedback:</b></p>
               <form action="contact.php" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="text" name="surname" placeholder="Your Surname" required>
-                <input type="email" name="email" placeholder="Your E-Mail" required>
-                <textarea rows=5 name="message" placeholder="Write To Us...." required></textarea>
+                <input type="text" name="feedbackname" placeholder="Your Name" required>
+                <input type="text" name="feedbacksurname" placeholder="Your Surname" required>
+                <input type="email" name="feedbackemail" placeholder="Your E-Mail" required>
+                <textarea rows=5 name="feedbackmessage" placeholder="Write To Us...." required></textarea>
                 <input type="submit" value="Send" class="btnSend">  
               </form>
             </div>
