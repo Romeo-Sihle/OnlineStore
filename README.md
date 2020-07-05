@@ -9,6 +9,7 @@ username: "root"
 Installation Steps:
 
 1	In MySQL/PHPadmin, Create a table  and name it "store"
+
 2	Import the "store" SQL database file from MySQL/PHPadmin located on the "connection" php file
 
 You can use my existing account to login the Login app:
