@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2020 at 11:21 PM
+-- Generation Time: Jul 03, 2020 at 01:23 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -42,7 +42,9 @@ CREATE TABLE `feedback` (
 INSERT INTO `feedback` (`id`, `Name`, `Surname`, `Email`, `Message`) VALUES
 (1, 'Romeo', 'Mnxulwa', 'romeosihle.mnxulwa@gmail.com', 'Good Day, \r\n\r\nI would like to make a request of acquiring a Mercedes Benz GLC63s AMG 4-Matic + as I do not find it here in South African dealerships. I would like it imported to my residential address.\r\n\r\nKind Regards\r\n\r\nRomeo'),
 (2, 'Romeo', 'Gibbs', 'gibs@gmail.com', 'hello'),
-(3, 'Sihle', 'Mnxulwa', 'romeosihle.mnxulwa@gmail.com', 'Good day, \r\n\r\nI am Interested in the new GLA AMG Mercedes Benz. Please contact me.\r\n\r\nThank you.\r\n\r\nRomeo Mnxulwa\r\n');
+(3, 'Sihle', 'Mnxulwa', 'romeosihle.mnxulwa@gmail.com', 'Good day, \r\n\r\nI am Interested in the new GLA AMG Mercedes Benz. Please contact me.\r\n\r\nThank you.\r\n\r\nRomeo Mnxulwa\r\n'),
+(6, 'tommy', 'lee', 'lee@gmail.com', 'thank you'),
+(10, 'Romeo', 'Roberts', 'jr@gmail.com', 'kytr');
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `city`, `address`) VALUES
 (4, 'yugesh verma', 'yugeshverma32@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '6263056779', 'bhilai', '25 commercial complex, nehru nagar,east near vijya bank, bhilai C.G.'),
 (5, 'yugesh', 'yugeshverma@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '9165063741', 'bhilai', 'bhilai'),
-(6, 'Romeo Mnxulwa', 'romeosihle.mnxulwa@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '0822843112', 'Cape Town', '12 Hunt Church Street');
+(6, 'Romeo Mnxulwa', 'romeosihle.mnxulwa@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '0822843112', 'Cape Town', '12 Hunt Church Street'),
+(7, 'devon', 'devonnaidoo@gmail.com', '14e1b600b1fd579f47433b88e8d85291', '0822842233', 'Cape Town', '12 Hunt Church Street');
 
 -- --------------------------------------------------------
 
@@ -130,7 +133,10 @@ INSERT INTO `users_items` (`id`, `user_id`, `item_id`, `status`) VALUES
 (22, 6, 2, 'Added to cart'),
 (23, 6, 4, 'Added to cart'),
 (25, 6, 5, 'Added to cart'),
-(29, 6, 12, 'Added to cart');
+(29, 6, 12, 'Added to cart'),
+(30, 7, 2, 'Confirmed'),
+(31, 7, 12, 'Confirmed'),
+(32, 7, 11, 'Added to cart');
 
 --
 -- Indexes for dumped tables
@@ -170,7 +176,7 @@ ALTER TABLE `users_items`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -182,13 +188,13 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users_items`
 --
 ALTER TABLE `users_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
